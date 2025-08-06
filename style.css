@@ -90,6 +90,12 @@
             background-clip: text;
         }
 
+        .nav-link{
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
         /* Theme Toggle */
         .theme-toggle {
             background: none;
