@@ -49,7 +49,10 @@
             </div>
         </div>
     </nav>
-
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="btn btn-primary-custom btn-custom" style="position: fixed; bottom: 40px; right: 30px; display: none; z-index: 999;" title="Back to Top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
@@ -444,6 +447,19 @@
             }
         });
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     </script>
 </body>
 </html>
