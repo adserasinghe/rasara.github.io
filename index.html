@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Your Name</title>
+    <title>Portfolio - Chiran Pramuka Rasara</title>
     
     <!-- Bootstrap 5.3.2 CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
@@ -11,8 +11,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
     <!-- AOS Animation Library -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./style.css">
+
 </head>
 <body class="light-theme">
     <!-- Navigation -->
@@ -51,7 +51,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-            
+        <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 hero-content">
                     <h1 data-aos="fade-up">Hi, I'm <span class="typing-effect" id="typingText">Pramuka</span></h1>
@@ -63,9 +63,7 @@
                 </div>
                 <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="600">
                     <div class="hero-image">
-                        <div style="width: 300px; height: 300px; background: rgba(255,255,255,0.1); border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-size: 5rem; color: white;">
-                            <img style="width: 300px; height: 300px; border: radius 50%;margin: 0 auto; display: flex; align-items: right; justify-content: center;"src="https://i.postimg.cc/VNRFJjTZ/hero-image.jpg" alt="hero-image">
-                        </div>
+                        <img src="https://i.postimg.cc/VNRFJjTZ/hero-image.jpg" alt="Chiran Pramuka Rasara">
                     </div>
                 </div>
             </div>
@@ -77,7 +75,7 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-down">About Me</h2>
             <div class="row">
-                <div class="col-lg-6" data-aos="fade-left">
+                <div class="col-lg-6" data-aos="fade-right">
                     <div class="about-content">
                         <h3>Hello! I'm a Creative Developer</h3>
                         <p>With over 5 years of experience in web development, I specialize in creating beautiful, functional, and user-friendly websites and applications. I'm passionate about clean code, modern design, and innovative solutions.</p>
@@ -119,7 +117,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section" style="background-color: var(--bg-secondary-light);">
+    <section id="skills" class="section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">My Skills</h2>
             <div class="row">
@@ -213,7 +211,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section" style="background-color: var(--bg-secondary-light);">
+    <section id="contact" class="section">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
             <div class="row">
@@ -262,7 +260,7 @@
             <hr style="border-color: #4a5568; margin: 30px 0;">
             <div class="row">
                 <div class="col-12 text-center">
-                    <p>&copy; 2025 Drawnwords. All rights reserved.</p>
+                    <p>&copy; 2025 Chiran Pramuka Rasara. All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -281,49 +279,21 @@
             offset: 100
         });
 
-        // Digital Clock
-        function updateClock() {
-            const now = new Date();
-            const options = {
-                weekday: 'short',
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: true
-            };
-            
-            const timeString = now.toLocaleDateString('en-US', options);
-            document.getElementById('digitalClock').textContent = timeString;
-        }
-
-        // Update clock every second
-        setInterval(updateClock, 1000);
-        updateClock(); // Initial call
-
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
 
-        // Check for saved theme preference or use default
-        const savedTheme = 'light-theme'; // Default theme since localStorage isn't available
-        body.className = savedTheme;
-
         themeToggle.addEventListener('click', () => {
             if (body.classList.contains('light-theme')) {
                 body.className = 'dark-theme';
-                // Theme preference will persist during the session
             } else {
                 body.className = 'light-theme';
-                // Theme preference will persist during the session
             }
         });
 
         // Typing Effect
         const typingText = document.getElementById('typingText');
-        const texts = ['Your Name', 'a Developer', 'a Designer', 'a Creator'];
+        const texts = ['Pramuka', 'a Developer', 'a Designer', 'a Creator'];
         let textIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -366,16 +336,21 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    
+                    // Close mobile menu if open
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        bootstrap.Collapse.getInstance(navbarCollapse).hide();
+                    }
                 }
             });
         });
 
-        // Skills Progress Animation with proper timing
+        // Skills Progress Animation
         function animateSkills() {
             const progressBars = document.querySelectorAll('.progress-bar');
             progressBars.forEach((bar, index) => {
                 const width = bar.getAttribute('data-width');
-                // Add delay for each bar
                 setTimeout(() => {
                     bar.style.width = width + '%';
                 }, index * 200);
@@ -401,7 +376,7 @@
             observer.observe(skillsSection);
         }
 
-        // Add scroll effect to navbar with proper theme handling
+        // Add scroll effect to navbar
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
             if (navbar) {
@@ -419,7 +394,7 @@
             }
         });
 
-        // Form submission (you can customize this)
+        // Form submission
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your message! I\'ll get back to you soon.');
@@ -456,6 +431,17 @@
         });
 
         fadeElements.forEach(el => fadeObserver.observe(el));
+
+        // Mobile menu auto-close on scroll
+        window.addEventListener('scroll', () => {
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse) {
+                    bsCollapse.hide();
+                }
+            }
+        });
     </script>
 </body>
 </html>
