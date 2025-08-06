@@ -260,7 +260,7 @@
             <hr style="border-color: #4a5568; margin: 30px 0;">
             <div class="row">
                 <div class="col-12 text-center">
-                    <p>&copy; 2025 Chiran Pramuka Rasara. All rights reserved.</p>
+                    <p>&copy; <span id="currentYear"></span> Chiran Pramuka Rasara. All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -442,6 +442,7 @@
                 }
             }
         });
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
